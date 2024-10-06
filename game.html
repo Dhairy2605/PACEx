@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz with Three.js Animation</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">PACE Satellite Quiz</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+                <!-- <li class="nav-item"><a href="#" class="nav-link">About</a></li> -->
+                <!-- <li class="nav-item"><a href="#" class="nav-link">Contact</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Three.js Background Animation -->
+    <div id="threejs-background"></div>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container">
+        <div id="timer-container">
+            <span id="timer">Time: 30s</span>
+        </div>
+        <div id="question">What is the primary goal of the PACE satellite?</div>
+        <div id="options">
+            <button class="option-button">Option 1</button>
+            <button class="option-button">Option 2</button>
+            <button class="option-button">Option 3</button>
+            <button class="option-button">Option 4</button>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div class="info-modal" id="info-modal">
+        <div class="info-modal-content">
+            <span id="close-info">&times;</span>
+            <div id="info">Detailed information about the answer goes here.</div>
+        </div>
+    </div>
+
+    <!-- Three.js Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="game.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>

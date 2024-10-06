@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about NASA's PACE mission focusing on ocean health and atmospheric studies.">
+    <title>What is PACE?</title>
+    <link rel="stylesheet" href="css/nasa.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            overflow: auto; /* Allow scrolling */
+        }
+        canvas {
+            position: fixed; /* Fix canvas to the viewport */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Cover full width */
+            height: 100vh; /* Cover full height */
+            z-index: -1; /* Make sure canvas is behind the content */
+        }
+        header {
+            position: fixed; /* Fix navbar at the top */
+            width: 100%;
+            z-index: 10; /* Ensure it stays above other content */
+        }
+        nav {
+            background: transparent; /* Fully transparent background initially */
+            padding: 15px 20px; /* Add some padding */
+            transition: background 0.3s ease; /* Smooth background change on scroll */
+        }
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.8); /* Dark background when scrolled */
+        }
+        .navbar-brand, .nav-links a {
+            color: white; /* Set text color to white */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .nav-links {
+            list-style: none; /* Remove bullets from list */
+            display: flex; /* Align links in a row */
+            gap: 20px; /* Add space between links */
+        }
+        main {
+            padding-top: 120px; /* Space for the navbar */
+            position: relative; /* Ensure main is above the canvas */
+            z-index: 1; /* Make sure main content is above the canvas */
+            padding-bottom: 50px; /* Ensure there's space for footer */
+        }
+        footer {
+            position: relative; /* Position footer */
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <canvas id="starCanvas"></canvas>
+
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a class="navbar-brand">PACEx</a>
+                <ul class="nav-links">
+                    <li><a href="home.html" class="active">HOME</a></li>
+                    <li><a href="mission&goals.html">MISSION & GOALS</a></li>
+                    <li><a href="architecture.html">ARCHITECTURE</a></li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><a href="game.html">QUEST</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="max-w-4xl mx-auto">
+        <h1 class="text-2xl font-bold text-orange-600 mb-4">What is PACE?</h1>
+        <p class="mb-4">
+            PACE is NASA's <span class="font-bold">Plankton, Aerosol, Cloud, ocean Ecosystem</span> mission, currently in the design phase of mission development. It is scheduled to launch in 2024, extending and improving NASA's over 20-year record of satellite observations of global ocean biology, aerosols, and clouds.
+        </p>
+        <p class="mb-4">
+            PACE will advance the assessment of <span class="font-bold">ocean health</span> by measuring the distribution of phytoplankton, tiny plants and algae that sustain the marine food web. It will also continue systematic records of key atmospheric variables associated with <span class="font-bold">air quality</span> and Earth's climate.
+        </p>
+
+        <div class="flex mt-8">
+            <div class="w-1/2 pr-4 mt-8"> <!-- Added margin-top here -->
+                <img alt="Illustration of PACE mission showing interaction between atmosphere and ocean" class="border" src="https://storage.googleapis.com/a1aa/image/emZksLPnBjXiCihfrAG2wxcqsk6jNCh6Adq9GVivO62DkrjTA.jpg" />
+            </div>
+            <div class="w-1/2">
+                <h2 class="text-xl font-bold">About the PACE Mission</h2>
+                <p>
+                    Overall, the PACE mission aims to enhance our understanding of the interconnectedness of oceanic and atmospheric systems, which is vital for addressing environmental challenges.
+                </p>
+                <p>
+                    PACE will also continue to monitor phytoplankton, aerosols, and clouds, providing crucial data for climate models and helping to predict future changes in our environment.
+                </p>
+                <h2 class="text-xl font-bold mt-4">Key Components</h2>
+                <ul class="mb-4">
+                    <li>
+                        <span class="font-bold">Ocean Color Instrument (OCI)</span>: PACE will monitor phytoplankton in oceans, crucial for carbon cycling and marine food webs.
+                    </li>
+                    <li>
+                        <span class="font-bold">Aerosols</span>: The satellite will measure aerosol particles in the atmosphere, affecting climate and air quality.
+                    </li>
+                    <li>
+                        <span class="font-bold">Cloud Properties</span>: It will gather data on cloud formation and dynamics, helping to improve climate models.
+                    </li>
+                    <li>
+                        <span class="font-bold">Interactions</span>: PACE will study how these elements interact and influence global climate change, weather patterns, and ecosystem health.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Pacex. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('starCanvas') });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const stars = [];
+        const starCount = 5000;
+
+        for (let i = 0; i < starCount; i++) {
+            const geometry = new THREE.SphereGeometry(0.05, 24, 24);
+            const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+            const star = new THREE.Mesh(geometry, material);
+
+            const x = Math.random() * 400 - 200;
+            const y = Math.random() * 400 - 200;
+            const z = Math.random() * 400 - 200;
+
+            star.position.set(x, y, z);
+            stars.push(star);
+            scene.add(star);
+        }
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            stars.forEach((star) => {
+                star.position.z += 0.1;
+                if (star.position.z > 5) {
+                    star.position.z = -5;
+                }
+            });
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Change navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

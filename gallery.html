@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PACE Satellite Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: auto; /* Allow scrolling */
+            color: #f5f5f5;
+            background-color: #000; /* Black background */
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent background */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            background: #ff9900; /* Change hover color to yellow */
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background: #ff9900;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three images per row */
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .gallery-container div {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            height: 200px; /* Set uniform height */
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent background for cards */
+        }
+
+        .gallery-container img {
+            width: 100%;
+            height: 100%; /* Set uniform height */
+            object-fit: cover; /* Ensure images cover the area */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-container div:hover {
+            transform: scale(1.1); /* Full card zoom in effect */
+        }
+
+        .gallery-container div:hover img {
+            transform: scale(1.1); /* Image zoom in effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            color: black;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            width: 200px;
+            text-align: center;
+        }
+
+        .gallery-container div:hover .popup {
+            display: block;
+        }
+
+        h2 {
+            margin-top: 0;
+            text-align: center;
+            color: #ff9900;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #f5f5f5;
+            position: relative; /* Ensure footer is always at the bottom */
+        }
+
+        /* Fullscreen canvas for stars */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+       
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="mission&goals.html">MISSIONS & GOALS</a></li>
+                <li><a href="architecture.html">ARCHITECTURE</a></li>
+                <li><a href="gallery.html" class="active">GALLERY</a></li>
+                <li><a href="game.html">QUEST</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- <h1>PACE Satellite Gallery</h1> -->
+    <main>
+        <section class="gallery">
+            <h2>PACE Satellite Images</h2>
+            <div class="gallery-container">
+                <div>
+                    <img src="pace1.jpg" alt="PACE Satellite Image 1">
+                    <div class="popup">Details about Image 1</div>
+                </div>
+                <div>
+                    <img src="pace2.jpg" alt="PACE Satellite Image 2">
+                    <div class="popup">Details about Image 2</div>
+                </div>
+                <div>
+                    <img src="pace3.jpg" alt="PACE Satellite Image 3">
+                    <div class="popup">Details about Image 3</div>
+                </div>
+                <div>
+                    <img src="pace4.jpg" alt="PACE Satellite Image 4">
+                    <div class="popup">Details about Image 4</div>
+                </div>
+                <div>
+                    <img src="pace5.jpg" alt="PACE Satellite Image 5">
+                    <div class="popup">Details about Image 5</div>
+                </div>
+                <div>
+                    <img src="pace6.jpg" alt="PACE Satellite Image 6">
+                    <div class="popup">Details about Image 6</div>
+                </div>
+                <div>
+                    <img src="pace7.jpg" alt="PACE Satellite Image 7">
+                    <div class="popup">Details about Image 7</div>
+                </div>
+                <div>
+                    <img src="pace8.jpg" alt="PACE Satellite Image 8">
+                    <div class="popup">Details about Image 8</div>
+                </div>
+                <div>
+                    <img src="pace9.jpg" alt="PACE Satellite Image 9">
+                    <div class="popup">Details about Image 9</div>
+                </div>
+                <div>
+                    <img src="pace10.jpg" alt="PACE Satellite Image 10">
+                    <div class="popup">Details about Image 10</div>
+                </div>
+                <div>
+                    <img src="pace11.jpg" alt="PACE Satellite Image 11">
+                    <div class="popup">Details about Image 11</div>
+                </div>
+                <div>
+                    <img src="pace12.jpg" alt="PACE Satellite Image 12">
+                    <div class="popup">Details about Image 12</div>
+                </div>
+                <div>
+                    <img src="pace13.jpg" alt="PACE Satellite Image 13">
+                    <div class="popup">Details about Image 13</div>
+                </div>
+                <div>
+                    <img src="pace14.jpg" alt="PACE Satellite Image 14">
+                    <div class="popup">Details about Image 14</div>
+                </div>
+                <div>
+                    <img src="pace15.jpg" alt="PACE Satellite Image 15">
+                    <div class="popup">Details about Image 15</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 PACE Satellite Project. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Three.js starry background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const starsGeometry = new THREE.BufferGeometry();
+        const starCount = 10000;
+        const positions = new Float32Array(starCount * 3);
+
+        for (let i = 0; i < starCount; i++) {
+            const x = (Math.random() - 0.5) * 2000;
+            const y = (Math.random() - 0.5) * 2000;
+            const z = (Math.random() - 0.5) * 2000;
+            positions.set([x, y, z], i * 3);
+        }
+
+        starsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+        const stars = new THREE.Points(starsGeometry, starsMaterial);
+        scene.add(stars);
+
+        camera.position.z = 1;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            stars.rotation.x += 0.0005; // Rotate stars for dynamic effect
+            stars.rotation.y += 0.0005; // Rotate stars for dynamic effect
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Adjust canvas on window resize
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+    </script>
+</body>
+</html>

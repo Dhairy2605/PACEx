@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PACE Satellite - Mission and Goals</title>
+    <link rel="stylesheet" href="css/nasa.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #0e0e0e, #121212), url('path/to/star-pattern.png');
+            background-size: cover;
+            color: #f5f5f5;
+            overflow: auto;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            padding: 15px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+            display: flex;
+            gap: 30px;
+        }
+        nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background: #ff9900;
+            color: #000;
+            border-radius: 5px;
+        }
+        nav a.active {
+            font-weight: bold;
+            background: #ff9900;
+            color: #000;
+            border-radius: 5px;
+        }
+        main {
+            padding-top: 80px;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: auto;
+        }
+        h2 {
+            color: #ff9900;
+            margin: 40px 0 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 2.5em;
+        }
+        p, ul {
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.6;
+            font-family: 'Georgia', serif;
+            font-size: 1.1em;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: 0 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        section {
+            background-color: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #f5f5f5;
+            position: relative;
+        }
+        canvas {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100vw; 
+            height: 100vh; 
+            z-index: 0; 
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column; 
+                gap: 15px;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            p {
+                font-size: 1em;
+            }
+            img {
+                max-width: 90%; /* Responsive image size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="starCanvas"></canvas>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="mission&goals.html" class="active">MISSIONS & GOALS</a></li>
+                <li><a href="architecture.html">ARCHITECTURE</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="game.html">QUEST</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="mission">
+            <h2>Mission Statement</h2>
+            <p>
+                The PACE mission aims to enhance our understanding of ocean ecosystems, atmospheric processes, and climate change by providing high-quality data on marine and atmospheric conditions.
+            </p>
+            <p>
+                The PACE (Plankton, Aerosol, Cloud, ocean Ecosystem) satellite is a mission led by NASA aimed at advancing our understanding of the Earth's ocean and atmosphere systems. Scheduled for launch in 2024, PACE will monitor the interactions between the ocean and the atmosphere, focusing on the role of phytoplankton in carbon cycling and climate change.
+            </p>
+            <p>
+                One of its primary missions is to study the distribution and types of phytoplankton in the ocean, which play a critical role in carbon absorption. PACE will also observe aerosols and cloud properties to understand their impact on climate and weather patterns. The satellite is equipped with advanced imaging spectrometers, enabling it to capture high-resolution data across a wide spectrum of light.
+            </p>
+            <p>
+                By providing valuable insights into ocean health, air quality, and climate dynamics, PACE aims to support scientific research and inform policymakers about environmental changes. Its data will be crucial for improving climate models and enhancing our understanding of the Earth's interconnected systems.
+            </p>
+        </section>
+
+        <div class="content">
+            <img src="pace1.jpg" alt="Diagram showing PACE satellite's orbit around Earth">
+            <img src="pace2.png" alt="Graph depicting phytoplankton distribution">
+        </div>
+        
+        <section id="goals">
+            <h2>Goals</h2>
+            <ul>
+                <li>Monitor global ocean health and productivity.</li>
+                <li>Analyze the impact of aerosols on climate and ocean processes.</li>
+                <li>Improve satellite data for better climate models.</li>
+                <li>Support research in marine biology and oceanography.</li>
+                <li>Facilitate data access for scientists and policymakers.</li>
+            </ul>
+            <p>
+                The PACE (Plankton, Aerosol, Cloud, ocean Ecosystem) satellite mission has a well-defined set of goals aimed at advancing our understanding of the Earth’s complex systems. Here’s a more detailed look at its primary objectives:
+            </p>
+            <p><b>1. Phytoplankton Dynamics:</b> PACE aims to monitor the abundance, distribution, and composition of phytoplankton in the ocean. Phytoplankton are crucial for photosynthesis and play a significant role in the global carbon cycle. Understanding their dynamics can help scientists gauge the health of marine ecosystems and their response to climate change.</p>
+            <p><b>2. Aerosol Characterization:</b> The satellite will analyze the physical and chemical properties of aerosols in the atmosphere. Aerosols can influence climate by affecting cloud formation, altering radiation balance, and impacting air quality. PACE will help identify the sources and types of aerosols, improving our understanding of their role in atmospheric processes.</p>
+            <p><b>3. Ocean-Atmosphere Interactions:</b> The mission aims to explore the interactions between the ocean and atmosphere, focusing on how changes in one system can affect the other. This includes studying how oceanic phytoplankton influence atmospheric composition and climate.</p>
+            <p><b>4. Data Integration and Model Improvement:</b> PACE will contribute high-quality data that can be integrated into existing Earth system models. This integration will enhance predictions related to climate change, marine biology, and ecosystem health, providing a more comprehensive understanding of Earth’s systems.</p>
+            <p><b>5. Long-Term Monitoring:</b> PACE is designed for long-term monitoring of ocean and atmospheric conditions, allowing for the analysis of trends over time. This long-duration data will be essential for detecting changes in climate and ecosystem health.</p>
+            <p><b>6. Global Reach and Coverage:</b> The satellite aims to provide global data, enabling scientists to study variations in phytoplankton, aerosols, and cloud properties across different regions. This comprehensive view is crucial for understanding regional differences in climate impact.</p>
+            <p><b>7. Support for Environmental Policy:</b> By providing valuable data on marine ecosystems and atmospheric conditions, PACE will support policymakers in making informed decisions regarding environmental regulations and climate action initiatives.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 PACE Satellite Project. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('starCanvas'), alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const stars = [];
+        const starCount = 5000;
+
+        for (let i = 0; i < starCount; i++) {
+            const geometry = new THREE.SphereGeometry(0.05, 24, 24);
+            const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+            const star = new THREE.Mesh(geometry, material);
+
+            const x = Math.random() * 400 - 200;
+            const y = Math.random() * 400 - 200;
+            const z = Math.random() * 400 - 200;
+
+            star.position.set(x, y, z);
+            stars.push(star);
+            scene.add(star);
+        }
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            stars.forEach((star) => {
+                star.position.z += 0.1;
+                if (star.position.z > 5) {
+                    star.position.z = -200;
+                }
+            });
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
